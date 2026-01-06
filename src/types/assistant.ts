@@ -1,22 +1,36 @@
 import { z } from 'zod';
 
-//Esquema de Zod para validaciones
 export const AssistantSchema = z.object({
   id: z.string(),
-  name: z.string().min(3, 'El nombre debe tener al menos 3 caractere'),
-  language: z.enum(['Español', 'Ingles', 'Portugués']),
+
+  name: z.string().min(3, { message: 'El nombre debe tener al menos 3 caracteres' }),
+
+  language: z.enum(['Español', 'Inglés', 'Portugués']),
   tone: z.enum(['Formal', 'Casual', 'Profesional', 'Amigable']),
+
   responseLength: z
     .object({
-      short: z.number().min(0).max(100),
-      medium: z.number().min(0).max(100),
-      long: z.number().min(0).max(100),
+      short: z
+        .number()
+        .min(0, { message: 'Debe ser mayor o igual a 0' })
+        .max(100, { message: 'Debe ser menor o igual a 100' }),
+
+      medium: z
+        .number()
+        .min(0, { message: 'Debe ser mayor o igual a 0' })
+        .max(100, { message: 'Debe ser menor o igual a 100' }),
+
+      long: z
+        .number()
+        .min(0, { message: 'Debe ser mayor o igual a 0' })
+        .max(100, { message: 'Debe ser menor o igual a 100' }),
     })
-    .refine((data) => data.short + data.medium + data.long === 100, {
-      message: 'La suma debe ser exactamente 100%',
+    .refine(({ short, medium, long }) => short + medium + long === 100, {
+      message: 'La suma de las longitudes debe ser exactamente 100%',
       path: ['short'],
     }),
-  audioEnabled: z.boolean().default(false),
+
+  audioEnabled: z.boolean(),
   rules: z.string().optional(),
 });
 
