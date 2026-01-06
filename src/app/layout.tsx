@@ -23,7 +23,7 @@ export default function RootLayout({
             <nav className='text-sm text-slate-500'>Gestión de Asistentes</nav>
           </div>
         </header>
-        <main className='max-w-7xl max-auto p-4 md:p-8'>{children}</main>
+        <main className='w-full max-auto p-4 md:p-8'>{children}</main>
       </body>
     </html>
   );

@@ -67,7 +67,7 @@ export default function AssistantModal({
           </button>
         </div>
 
-        {/* Indicador de Pasos [cite: 49] */}
+        {/* Indicador de Pasos */}
         <div className='flex px-6 pt-6 gap-2'>
           <div className={`h-2 flex-1 rounded-full ${step >= 1 ? 'bg-indigo-600' : 'bg-slate-200'}`} />
           <div className={`h-2 flex-1 rounded-full ${step === 2 ? 'bg-indigo-600' : 'bg-slate-200'}`} />
@@ -75,7 +75,7 @@ export default function AssistantModal({
 
         <form onSubmit={handleSubmit(onSubmit)} className='p-6 space-y-4'>
           {step === 1 ? (
-            /* PASO 1: DATOS BÁSICOS [cite: 42] */
+            /* PASO 1: DATOS BÁSICOS */
             <div className='space-y-4'>
               <div>
                 <label className='block text-sm font-medium mb-1 text-black'>Nombre del asistente *</label>
@@ -108,9 +108,9 @@ export default function AssistantModal({
               </div>
             </div>
           ) : (
-            /* PASO 2: CONFIGURACIÓN [cite: 46] */
+            /* PASO 2: CONFIGURACIÓN */
             <div className='space-y-4'>
-              <label className='block text-sm font-medium'>Longitud de respuestas (Total 100%) [cite: 53]</label>
+              <label className='block text-sm font-medium'>Longitud de respuestas (Total 100%) </label>
               <div className='grid grid-cols-3 gap-3'>
                 {['short', 'medium', 'long'].map((len) => (
                   <div key={len}>
@@ -130,13 +130,13 @@ export default function AssistantModal({
               <div className='flex items-center gap-2 pt-2'>
                 <input type='checkbox' {...register('audioEnabled')} id='audio' className='w-4 h-4' />
                 <label htmlFor='audio' className='text-sm'>
-                  Habilitar respuestas de audio [cite: 40, 49]
+                  Habilitar respuestas de audio
                 </label>
               </div>
             </div>
           )}
 
-          {/* Botones de acción [cite: 45, 50] */}
+          {/* Botones de acción */}
           <div className='flex justify-end gap-3 pt-6 border-t'>
             {step === 2 && (
               <button
