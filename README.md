@@ -1,73 +1,69 @@
-Stack Tecnológico
-Framework: Next.js 15 (App Router) para un renderizado eficiente y rutas dinámicas.
+# AI Assistants Manager
 
-Gestión de Estado: Zustand con middleware de Persistencia, garantizando que los datos sobrevivan a recargas del navegador.
+Aplicación web para la gestión, configuración y entrenamiento de asistentes de Inteligencia Artificial.  
+Permite crear agentes personalizados, definir su comportamiento y simular interacciones en un entorno controlado.
 
-Validación de Formularios: React Hook Form + Zod para esquemas de validación estrictos y manejo de errores en tiempo real.
+---
 
-Estilos: Tailwind CSS + Lucide React para una interfaz moderna, limpia y responsive.
+## Stack Tecnológico
 
-Animaciones: Tailwind Animate para transiciones fluidas en modales y flujos.
+- **Framework:** Next.js 15 (App Router) para renderizado eficiente y rutas dinámicas.
+- **Lenguaje:** TypeScript con tipado estricto.
+- **Gestión de Estado:** Zustand con middleware de persistencia para mantener los datos entre recargas.
+- **Validación de Formularios:** React Hook Form + Zod para validaciones robustas y feedback en tiempo real.
+- **Estilos:** Tailwind CSS + Lucide React para una interfaz moderna, limpia y responsive.
+- **Animaciones:** Tailwind Animate para transiciones fluidas en modales y flujos de interacción.
 
-Características Principales
-1. Gestión de Asistentes (CRUD completo)
-Creación en Pasos: Modal multi-step que separa la información básica de la configuración lógica.
+---
 
-Validación Inteligente: El sistema impide avanzar si los datos obligatorios faltan o si la distribución de respuestas no suma exactamente el 100%.
+## Características Principales
 
-Persistencia Local: Los asistentes se almacenan en el localStorage, permitiendo una experiencia de usuario continua sin necesidad de base de datos externa en esta fase.
+### 1. Gestión de Asistentes (CRUD Completo)
 
-Entrenamiento e Interacción
-Configuración de Reglas: Panel dedicado para definir el comportamiento y "conocimiento" de cada asistente.
+- **Creación en Pasos:** Modal multi-step que separa información básica y configuración avanzada.
+- **Validación Inteligente:** - Campos obligatorios controlados en cada paso.  
+  - La distribución de respuestas debe sumar exactamente el 100%.
+- **Persistencia Local:** Los asistentes se almacenan en `localStorage`, permitiendo una experiencia continua sin backend en esta fase.
 
-Simulador de Chat: Entorno de pruebas interactivo con respuestas simuladas, permitiendo validar el tono y las instrucciones configuradas.
+---
 
-Reset de Conversación: Capacidad de reiniciar el hilo de mensajes para realizar pruebas desde cero.
+### 2. Entrenamiento e Interacción
 
-Interfaz de Usuario (UI/UX)
-Layout 80/20: Diseño de dashboard optimizado con barra lateral de acciones rápidas y listado principal detallado.
+- **Configuración de Reglas:** Panel dedicado para definir el comportamiento y conocimiento base del asistente.
+- **Simulador de Chat:** Entorno interactivo para probar respuestas según tono, idioma y reglas configuradas.
+- **Reset de Conversación:** Posibilidad de reiniciar el historial para pruebas desde cero.
 
-Feedback Visual: Notificaciones (Toasts) tras acciones exitosas y diálogos de confirmación para acciones críticas como la eliminación de agentes.
+---
 
-Arquitectura y Decisiones Técnicas
-Generación de IDs: Se implementó crypto.randomUUID() en el momento del guardado para garantizar identificadores únicos globales, evitando colisiones de llaves en el renderizado de listas de React.
+### 3. Interfaz de Usuario (UI/UX)
 
-Estrategia de Estado: Se eligió Zustand sobre Redux por su ligereza y facilidad para implementar persistencia, reduciendo el "boilerplate" y mejorando el rendimiento.
+- **Layout 80/20:** Dashboard optimizado con panel lateral de acciones rápidas y listado principal detallado.
+- **Feedback Visual:** - Toasts para acciones exitosas.  
+  - Diálogos de confirmación para acciones críticas como eliminación de agentes.
+- **Diseño Responsive:** Adaptado a escritorio y dispositivos móviles.
 
-Validación de Paso 1: Uso de trigger() de React Hook Form para validar campos específicos antes de permitir que el usuario avance al siguiente paso del modal.
+---
 
-Instalación y Uso
-Clonar el repositorio:
+## Arquitectura y Decisiones Técnicas
 
-Bash
+- **Generación de IDs:** Se utiliza `crypto.randomUUID()` al momento de guardar un asistente, garantizando identificadores únicos y evitando colisiones en listas renderizadas por React.
 
-git clone https://github.com/CristianDanilo/c.git
+- **Estrategia de Estado:** Zustand fue elegido sobre Redux por su ligereza, menor boilerplate y facilidad de implementar persistencia, mejorando la mantenibilidad y el rendimiento.
+
+- **Validación por Pasos:** Uso de `trigger()` de React Hook Form para validar campos específicos antes de permitir avanzar al siguiente paso del modal.
+
+---
+
+##  Instalación y Uso
+
+### Clonar el repositorio
+```bash
+git clone [https://github.com/CristianDanilo/c.git](https://github.com/CristianDanilo/c.git)
 cd ai-assistants-manager
-Instalar dependencias:
 
-Bash
-
+### Instalar dependencias
 npm install
-Ejecutar en modo desarrollo:
 
-Bash
-
+### Ejecutar en modo desarrollo
 npm run dev
-Abrir el navegador: Visita http://localhost:3000
 
-Requisitos del Proyecto Cumplidos
-[x] Listar asistentes.
-
-[x] Crear asistente (Nombre, Idioma, Tono).
-
-[x] Configurar distribución de respuestas (Suma 100%).
-
-[x] Habilitar/Deshabilitar audio.
-
-[x] Editar y Eliminar (con confirmación).
-
-[x] Pantalla de entrenamiento con información del asistente.
-
-[x] Chat simulado con lógica de respuesta y reset.
-
-Desarrollado por Cristian Danilo Tobón Marulanda.
