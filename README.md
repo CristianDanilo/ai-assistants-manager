@@ -1,36 +1,73 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Stack Tecnológico
+Framework: Next.js 15 (App Router) para un renderizado eficiente y rutas dinámicas.
 
-## Getting Started
+Gestión de Estado: Zustand con middleware de Persistencia, garantizando que los datos sobrevivan a recargas del navegador.
 
-First, run the development server:
+Validación de Formularios: React Hook Form + Zod para esquemas de validación estrictos y manejo de errores en tiempo real.
 
-```bash
+Estilos: Tailwind CSS + Lucide React para una interfaz moderna, limpia y responsive.
+
+Animaciones: Tailwind Animate para transiciones fluidas en modales y flujos.
+
+Características Principales
+1. Gestión de Asistentes (CRUD completo)
+Creación en Pasos: Modal multi-step que separa la información básica de la configuración lógica.
+
+Validación Inteligente: El sistema impide avanzar si los datos obligatorios faltan o si la distribución de respuestas no suma exactamente el 100%.
+
+Persistencia Local: Los asistentes se almacenan en el localStorage, permitiendo una experiencia de usuario continua sin necesidad de base de datos externa en esta fase.
+
+Entrenamiento e Interacción
+Configuración de Reglas: Panel dedicado para definir el comportamiento y "conocimiento" de cada asistente.
+
+Simulador de Chat: Entorno de pruebas interactivo con respuestas simuladas, permitiendo validar el tono y las instrucciones configuradas.
+
+Reset de Conversación: Capacidad de reiniciar el hilo de mensajes para realizar pruebas desde cero.
+
+Interfaz de Usuario (UI/UX)
+Layout 80/20: Diseño de dashboard optimizado con barra lateral de acciones rápidas y listado principal detallado.
+
+Feedback Visual: Notificaciones (Toasts) tras acciones exitosas y diálogos de confirmación para acciones críticas como la eliminación de agentes.
+
+Arquitectura y Decisiones Técnicas
+Generación de IDs: Se implementó crypto.randomUUID() en el momento del guardado para garantizar identificadores únicos globales, evitando colisiones de llaves en el renderizado de listas de React.
+
+Estrategia de Estado: Se eligió Zustand sobre Redux por su ligereza y facilidad para implementar persistencia, reduciendo el "boilerplate" y mejorando el rendimiento.
+
+Validación de Paso 1: Uso de trigger() de React Hook Form para validar campos específicos antes de permitir que el usuario avance al siguiente paso del modal.
+
+Instalación y Uso
+Clonar el repositorio:
+
+Bash
+
+git clone https://github.com/CristianDanilo/c.git
+cd ai-assistants-manager
+Instalar dependencias:
+
+Bash
+
+npm install
+Ejecutar en modo desarrollo:
+
+Bash
+
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Abrir el navegador: Visita http://localhost:3000
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Requisitos del Proyecto Cumplidos
+[x] Listar asistentes.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+[x] Crear asistente (Nombre, Idioma, Tono).
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+[x] Configurar distribución de respuestas (Suma 100%).
 
-## Learn More
+[x] Habilitar/Deshabilitar audio.
 
-To learn more about Next.js, take a look at the following resources:
+[x] Editar y Eliminar (con confirmación).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+[x] Pantalla de entrenamiento con información del asistente.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+[x] Chat simulado con lógica de respuesta y reset.
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Desarrollado por Cristian Danilo Tobón Marulanda.

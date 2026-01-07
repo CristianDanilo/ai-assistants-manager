@@ -8,7 +8,7 @@ interface AssistantState {
   addAssistant: (assistant: Assistant) => void;
   updateAssistant: (id: string, assistant: Assistant) => void;
   deleteAssistant: (id: string) => void;
-  getAssistantById: (id: string) => Assistant | undefined;
+  getAssistantById: (id: string) => Assistant | undefined; 
 }
 
 export const useAssistantStore = create<AssistantState>()(
