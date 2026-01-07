@@ -1,69 +1,50 @@
 # AI Assistants Manager
 
-Aplicación web para la gestión, configuración y entrenamiento de asistentes de Inteligencia Artificial.  
-Permite crear agentes personalizados, definir su comportamiento y simular interacciones en un entorno controlado.
+Aplicación web profesional para la gestión, configuración y entrenamiento de asistentes de Inteligencia Artificial.  
+Permite crear agentes personalizados, definir su comportamiento lógico y simular interacciones en un entorno controlado de pruebas.
 
 ---
 
 ## Stack Tecnológico
 
-- **Framework:** Next.js 15 (App Router) para renderizado eficiente y rutas dinámicas.
-- **Lenguaje:** TypeScript con tipado estricto.
-- **Gestión de Estado:** Zustand con middleware de persistencia para mantener los datos entre recargas.
-- **Validación de Formularios:** React Hook Form + Zod para validaciones robustas y feedback en tiempo real.
-- **Estilos:** Tailwind CSS + Lucide React para una interfaz moderna, limpia y responsive.
-- **Animaciones:** Tailwind Animate para transiciones fluidas en modales y flujos de interacción.
+- **Framework:** Next.js 15 (App Router) para un renderizado eficiente y rutas dinámicas.
+- **Lenguaje:** TypeScript con tipado estricto para mayor robustez.
+- **Gestión de Estado:** Zustand + Persist Middleware para mantener la sesión activa entre recargas.
+- **Validación de Formularios:** React Hook Form + Zod para esquemas de validación estrictos.
+- **Estilos:** Tailwind CSS + Lucide React para una interfaz moderna y responsive.
+- **Animaciones:** Tailwind Animate para transiciones fluidas en modales y flujos.
 
 ---
 
-## Características Principales
+## 🛠️ Instalación y Uso
 
-### 1. Gestión de Asistentes (CRUD Completo)
+Sigue estos pasos para ejecutar el proyecto localmente:
 
-- **Creación en Pasos:** Modal multi-step que separa información básica y configuración avanzada.
-- **Validación Inteligente:** - Campos obligatorios controlados en cada paso.  
-  - La distribución de respuestas debe sumar exactamente el 100%.
-- **Persistencia Local:** Los asistentes se almacenan en `localStorage`, permitiendo una experiencia continua sin backend en esta fase.
-
----
-
-### 2. Entrenamiento e Interacción
-
-- **Configuración de Reglas:** Panel dedicado para definir el comportamiento y conocimiento base del asistente.
-- **Simulador de Chat:** Entorno interactivo para probar respuestas según tono, idioma y reglas configuradas.
-- **Reset de Conversación:** Posibilidad de reiniciar el historial para pruebas desde cero.
-
----
-
-### 3. Interfaz de Usuario (UI/UX)
-
-- **Layout 80/20:** Dashboard optimizado con panel lateral de acciones rápidas y listado principal detallado.
-- **Feedback Visual:** - Toasts para acciones exitosas.  
-  - Diálogos de confirmación para acciones críticas como eliminación de agentes.
-- **Diseño Responsive:** Adaptado a escritorio y dispositivos móviles.
-
----
-
-## Arquitectura y Decisiones Técnicas
-
-- **Generación de IDs:** Se utiliza `crypto.randomUUID()` al momento de guardar un asistente, garantizando identificadores únicos y evitando colisiones en listas renderizadas por React.
-
-- **Estrategia de Estado:** Zustand fue elegido sobre Redux por su ligereza, menor boilerplate y facilidad de implementar persistencia, mejorando la mantenibilidad y el rendimiento.
-
-- **Validación por Pasos:** Uso de `trigger()` de React Hook Form para validar campos específicos antes de permitir avanzar al siguiente paso del modal.
-
----
-
-##  Instalación y Uso
-
-### Clonar el repositorio
+### 1. Clonar el repositorio
 ```bash
 git clone [https://github.com/CristianDanilo/c.git](https://github.com/CristianDanilo/c.git)
 cd ai-assistants-manager
-
-### Instalar dependencias
 npm install
-
-### Ejecutar en modo desarrollo
 npm run dev
+```
+## Decisiones Técnicas y Arquitectura
+- **Zustand & Persistence: Se eligió Zustand por su ligereza y mínima configuración en comparación con Redux. Se implementó persistencia automática en localStorage para simular una base de datos, permitiendo que el usuario no pierda sus asistentes al cerrar el navegador.
+- **Validación Multi-paso: Implementación de un flujo de creación dividido en dos pasos. Se utiliza la función trigger() de React Hook Form para validar campos específicos de forma asíncrona antes de permitir al usuario avanzar, mejorando significativamente la UX.
+- **Identificadores Únicos: Generación dinámica de IDs mediante crypto.randomUUID() en el momento de la creación, asegurando que cada asistente sea único y evitando conflictos en el renderizado de listas de React.
+  
+## Características Implementadas
+- **Gestión de Asistentes: CRUD completo (Crear, Leer, Actualizar, Eliminar).
+- **Validación Lógica: El sistema bloquea la creación si la suma de porcentajes de respuesta (Corto, Medio, Largo) no es exactamente 100%.
+- **Simulador de Entrenamiento: Chat interactivo que responde según las reglas configuradas, con simulación de escritura ("typing") y lógica de respuestas aleatorias.
+- **UI/UX Avanzada: Dashboard con layout 80/20, Toasts de notificación para acciones exitosas y diálogos de confirmación para eliminar agentes.
+
+## tiempo de Dedicación
+
+- **Arquitectura y Setup:** 30 min.
+- **Lógica de Estado y Validaciones:** 1.5 horas.
+- **UI y Diseño Responsive:** 1.5 hora.
+- **Documentación Final:** 30 min.  
+**Total aproximado:** 4 horas de desarrollo activo.
+
+---
 
